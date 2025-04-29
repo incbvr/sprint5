@@ -252,4 +252,4 @@ document.addEventListener('DOMContentLoaded', () => {
     renderCalendar(currentMonth, currentYear);
     resetEventSection(); // Initial UI state for event section
 
-}); // End DOMContentLoaded
+});
