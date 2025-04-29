@@ -1,0 +1,237 @@
+/* style.css */
+body {
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background-color: #f4f7f6; /* Lighter background */
+    color: #333;
+}
+
+h1, h2 {
+    color: #2c3e50; /* Darker heading color */
+}
+
+.calendar-container {
+    width: 90%;
+    max-width: 700px; /* Slightly wider */
+    border: 1px solid #d1d9d6; /* Softer border */
+    border-radius: 8px; /* Rounded corners */
+    overflow: hidden; /* Keep content within rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Subtle shadow */
+    margin-bottom: 25px;
+    background-color: #fff;
+}
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #e24a68; /* Nice blue header */
+    color: white;
+    padding: 12px 15px;
+}
+
+.calendar-header h2 {
+    margin: 0;
+    font-size: 1.3em;
+    color: white;
+}
+
+.calendar-header button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.calendar-header button:hover {
+    background-color: white;
+    color: #4a90e2;
+}
+
+#calendar {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#calendar th, #calendar td {
+    border: 1px solid #e1e8e5; /* Lighter grid lines */
+    text-align: center;
+    padding: 0; /* Remove padding, control size via line-height/height */
+    height: 65px; /* Taller cells */
+    vertical-align: top;
+    position: relative;
+}
+
+#calendar th {
+    background-color: #f8fafa;
+    padding: 10px 0; /* Add padding back for headers */
+    height: auto; /* Reset height */
+    font-weight: 600;
+    color: #555;
+}
+
+#calendar td {
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.date-number {
+    display: block;
+    padding: 8px;
+    font-size: 0.9em;
+}
+
+#calendar td:not(.empty):hover {
+    background-color: #e8f4ff;
+}
+
+#calendar td.empty {
+    background-color: #fdfdfd;
+    cursor: default;
+}
+
+#calendar td.selected {
+    background-color: #aaccff !important; /* Use !important to override hover */
+    font-weight: bold;
+    box-shadow: inset 0 0 0 2px #4a90e2; /* Inner border */
+}
+
+#calendar td.has-event .date-number {
+     font-weight: bold; /* Make dates with events bold */
+     /* You can add other indicators like a dot below */
+}
+.event-count-indicator {
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    font-size: 0.7em;
+    color: #e74c3c; /* Event count color */
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Event Section Styling */
+.event-section {
+    border: 1px solid #d1d9d6;
+    border-radius: 8px; /* Match calendar */
+    padding: 20px;
+    width: 90%;
+    max-width: 700px; /* Match calendar */
+    background-color: #fff; /* Match calendar */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Match calendar */
+}
+
+.event-section h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+}
+
+#selectedDateDisplay {
+    font-weight: bold;
+    color: #e24a4c; /* Match header blue */
+}
+
+#eventList {
+    list-style: none;
+    padding: 0;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    max-height: 150px; /* Limit height and make scrollable */
+    overflow-y: auto;
+    border: 1px solid #eee;
+    border-radius: 4px;
+}
+
+#eventList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    border-bottom: 1px solid #f0f0f0;
+    background-color: #f9f9f9;
+}
+#eventList li:last-child {
+    border-bottom: none;
+}
+#eventList li span {
+    flex-grow: 1;
+    margin-right: 10px;
+    word-break: break-word; /* Prevent long words overflowing */
+}
+
+
+.event-add-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+}
+
+#newEventText {
+    width: calc(100% - 22px); /* Adjust for padding/border */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Include padding in width */
+}
+
+/* General Button Styles */
+button {
+    padding: 10px 18px;
+    margin-right: 8px;
+    margin-top: 5px; /* Add space between buttons if they wrap */
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.95em;
+    transition: background-color 0.2s, box-shadow 0.2s, transform 0.1s;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+    box-shadow: none;
+}
+
+/* Specific Button Styles & Effects */
+#addEventButton {
+    background-color: #2ecc71; /* Green */
+    color: white;
+}
+#addEventButton:not(:disabled):hover {
+    background-color: #27ae60;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.15);
+}
+#addEventButton:not(:disabled):active {
+    background-color: #229954;
+    transform: translateY(1px);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.delete-event-btn { /* Style for individual delete buttons */
+    background-color: #e74c3c; /* Red */
+    color: white;
+    padding: 4px 8px; /* Smaller buttons */
+    font-size: 0.8em;
+    margin-left: 10px; /* Space from event text */
+}
+.delete-event-btn:hover {
+    background-color: #c0392b;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+}
+.delete-event-btn:active {
+     background-color: #a93226;
+     transform: translateY(1px);
+     box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}

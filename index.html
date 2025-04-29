@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Calendar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>Simple Calendar</h1>
+
+    <div class="calendar-container">
+        <div class="calendar-header">
+            <button id="prevMonth">&lt; Prev</button>
+            <h2 id="monthYear">Month Year</h2>
+            <button id="nextMonth">Next &gt;</button>
+        </div>
+        <table id="calendar">
+            <thead>
+                <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                </tr>
+            </thead>
+            <tbody id="calendar-body">
+                </tbody>
+        </table>
+    </div>
+
+    <div class="event-section">
+        <h2>Events for <span id="selectedDateDisplay">None</span></h2>
+
+        <ul id="eventList">
+            </ul>
+
+        <div class="event-add-section">
+             <h3>Add New Event:</h3>
+            <input type="text" id="newEventText" placeholder="Enter new event description">
+            <button id="addEventButton" disabled>Add Event</button>
+            </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
